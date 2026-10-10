@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Products | Aishu Mart</title>
+
+    <link rel="stylesheet" href="products.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span>✿</span> Aishu Mart
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html" class="active">Products</a>
+            <a href="categories.html">Categories</a>
+            <a href="cart.html">
+                Cart <span id="cart-count">0</span>
+            </a>
+            <a href="login.html">Login</a>
+        </nav>
+
+    </header>
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-header">
+
+        <p>OUR COLLECTION</p>
+
+        <h1>Handmade Products</h1>
+
+        <span>
+            Discover unique products crafted with creativity and care.
+        </span>
+
+    </section>
+
+
+    <!-- SEARCH & FILTER -->
+
+    <section class="filter-section">
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search handmade products..."
+                onkeyup="filterProducts()"
+            >
+
+            <button onclick="filterProducts()">🔍</button>
+
+        </div>
+
+
+        <select id="categoryFilter" onchange="filterProducts()">
+
+            <option value="all">All Categories</option>
+
+            <option value="Wall Art">Wall Art</option>
+
+            <option value="Jewellery">Jewellery</option>
+
+            <option value="Home Decor">Home Decor</option>
+
+            <option value="Gifts">Handmade Gifts</option>
+
+            <option value="Accessories">Accessories</option>
+
+        </select>
+
+
+        <select id="priceFilter" onchange="filterProducts()">
+
+            <option value="all">All Prices</option>
+
+            <option value="500">Below ₹500</option>
+
+            <option value="1000">₹500 - ₹1000</option>
+
+            <option value="1500">Above ₹1000</option>
+
+        </select>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+
+    <section class="products-section">
+
+        <div class="product-grid" id="productGrid">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div
+                class="product-card"
+                data-name="Handmade Wall Art"
+                data-category="Wall Art"
+                data-price="499"
+            >
+
+                <div class="product-image">
+                    🖼️
+
+                    <span class="badge">New</span>
+                </div>
+
+                <div class="product-content">
+
+                    <span class="category">
+                        Wall Art
+                    </span>
+
+                    <h3>Handmade Wall Art</h3>
+
+                    <p>
+                        Beautiful handmade wall decoration
+                        for your home.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹499</strong>
+
+                        <button
+                            onclick="addProductToCart('Handmade Wall Art',499)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div
+                class="product-card"
+                data-name="Handmade Basket"
+                data-category="Home Decor"
+                data-price="699"
+            >
+
+                <div class="product-image">
+                    🧺
+
+                    <span class="badge popular">
+                        Popular
+                    </span>
+                </div>
+
+                <div class="product-content">
+
+                    <span class="category">
+                        Home Decor
+                    </span>
+
+                    <h3>Handmade Basket</h3>
+
+                    <p>
+                        Eco-friendly handmade basket
+                        for home decoration.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹699</strong>
+
+                        <button
+                            onclick="addProductToCart('Handmade Basket',699)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div
+                class="product-card"
+                data-name="Handmade Bracelet"
+                data-category="Jewellery"
+                data-price="299"
+            >
+
+                <div class="product-image">
+                    💍
+                </div>
+
+                <div class="product-content">
+
+                    <span class="category">
+                        Jewellery
+                    </span>
+
+                    <h3>Handmade Bracelet</h3>
+
+                    <p>
+                        Stylish handmade bracelet
+                        for everyday use.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹299</strong>
+
+                        <button
+                            onclick="addProductToCart('Handmade Bracelet',299)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+
+            <div
+                class="product-card"
+                data-name="Decorative Candle"
+                data-category="Home Decor"
+                data-price="349"
+            >
+
+                <div class="product-image">
+                    🕯️
+                </div>
+
+                <div class="product-content">
+
+                    <span class="category">
+                        Home Decor
+                    </span>
+
+                    <h3>Decorative Candle</h3>
+
+                    <p>
+                        Beautiful handmade candle
+                        for special occasions.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹349</strong>
+
+                        <button
+                            onclick="addProductToCart('Decorative Candle',349)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 5 -->
+
+            <div
+                class="product-card"
+                data-name="Handmade Gift Box"
+                data-category="Gifts"
+                data-price="899"
+            >
+
+                <div class="product-image">
+                    🎁
+                </div>
+
+                <div class="product-content">
+
+                    <span class="category">
+                        Handmade Gifts
+                    </span>
+
+                    <h3>Handmade Gift Box</h3>
+
+                    <p>
+                        A creative handmade gift
+                        box for loved ones.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹899</strong>
+
+                        <button
+                            onclick="addProductToCart('Handmade Gift Box',899)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 6 -->
+
+            <div
+                class="product-card"
+                data-name="Handmade Earrings"
+                data-category="Jewellery"
+                data-price="399"
+            >
+
+                <div class="product-image">
+                    💎
+                </div>
+
+                <div class="product-content">
+
+                    <span class="category">
+                        Jewellery
+                    </span>
+
+                    <h3>Handmade Earrings</h3>
+
+                    <p>
+                        Elegant handmade earrings
+                        with a unique design.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹399</strong>
+
+                        <button
+                            onclick="addProductToCart('Handmade Earrings',399)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 7 -->
+
+            <div
+                class="product-card"
+                data-name="Handmade Photo Frame"
+                data-category="Home Decor"
+                data-price="599"
+            >
+
+                <div class="product-image">
+                    🖼️
+                </div>
+
+                <div class="product-content">
+
+                    <span class="category">
+                        Home Decor
+                    </span>
+
+                    <h3>Handmade Photo Frame</h3>
+
+                    <p>
+                        Creative handmade frame
+                        for your favourite memories.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹599</strong>
+
+                        <button
+                            onclick="addProductToCart('Handmade Photo Frame',599)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 8 -->
+
+            <div
+                class="product-card"
+                data-name="Handmade Keychain"
+                data-category="Accessories"
+                data-price="199"
+            >
+
+                <div class="product-image">
+                    🔑
+                </div>
+
+                <div class="product-content">
+
+                    <span class="category">
+                        Accessories
+                    </span>
+
+                    <h3>Handmade Keychain</h3>
+
+                    <p>
+                        Cute handmade keychain
+                        for everyday use.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹199</strong>
+
+                        <button
+                            onclick="addProductToCart('Handmade Keychain',199)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- NO PRODUCTS -->
+
+        <div id="noProducts" class="no-products">
+
+            <h2>😔 No Products Found</h2>
+
+            <p>
+                Try another search or category.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div>
+                <h2>✿ Aishu Mart</h2>
+
+                <p>
+                    Smart Handmade Products
+                </p>
+
+                <p>
+                    Creative products made with
+                    love and care.
+                </p>
+            </div>
+
+
+            <div>
+
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="categories.html">Categories</a>
+                <a href="cart.html">Cart</a>
+
+            </div>
+
+
+            <div>
+
+                <h3>Customer</h3>
+
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+                <a href="order-history.html">
+                    Order History
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h3>Contact</h3>
+
+                <p>📧 support@aishumart.com</p>
+                <p>📞 +91 98765 43210</p>
+                <p>📍 Tamil Nadu, India</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Aishu Mart | Smart Handmade Products
+
+        </div>
+
+    </footer>
+
+
+    <script src="products.js"></script>
+
+</body>
+
+</html>
