@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment | Aishu Mart</title>
+    <link rel="stylesheet" href="payment.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">🛍️ Aishu Mart</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="categories.html">Categories</a>
+            <a href="cart.html">🛒 Cart</a>
+        </nav>
+    </header>
+
+
+    <!-- Header -->
+    <section class="payment-header">
+        <h1>💳 Payment</h1>
+        <p>Choose your preferred payment method</p>
+    </section>
+
+
+    <!-- Payment Section -->
+    <section class="payment-section">
+
+        <div class="payment-container">
+
+            <!-- Payment Methods -->
+            <div class="payment-box">
+
+                <h2>Choose Payment Method</h2>
+
+                <div class="payment-methods">
+
+                    <!-- UPI -->
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="paymentMethod"
+                            value="UPI"
+                            checked
+                        >
+
+                        <div class="payment-icon">📱</div>
+
+                        <div>
+                            <h3>UPI Payment</h3>
+                            <p>Google Pay, PhonePe, Paytm etc.</p>
+                        </div>
+
+                    </label>
+
+
+                    <!-- Card -->
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="paymentMethod"
+                            value="Card"
+                        >
+
+                        <div class="payment-icon">💳</div>
+
+                        <div>
+                            <h3>Credit / Debit Card</h3>
+                            <p>Visa, Mastercard and other cards</p>
+                        </div>
+
+                    </label>
+
+
+                    <!-- COD -->
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="paymentMethod"
+                            value="Cash on Delivery"
+                        >
+
+                        <div class="payment-icon">💵</div>
+
+                        <div>
+                            <h3>Cash on Delivery</h3>
+                            <p>Pay when your order arrives</p>
+                        </div>
+
+                    </label>
+
+                </div>
+
+
+                <!-- UPI Details -->
+                <div class="payment-details" id="upiDetails">
+
+                    <h3>Enter UPI ID</h3>
+
+                    <input
+                        type="text"
+                        id="upiId"
+                        placeholder="example@upi"
+                    >
+
+                    <small>
+                        Example: yourname@oksbi
+                    </small>
+
+                </div>
+
+
+                <!-- Card Details -->
+                <div
+                    class="payment-details"
+                    id="cardDetails"
+                    style="display:none;"
+                >
+
+                    <h3>Card Details</h3>
+
+                    <input
+                        type="text"
+                        id="cardName"
+                        placeholder="Cardholder Name"
+                    >
+
+                    <input
+                        type="text"
+                        id="cardNumber"
+                        placeholder="Card Number"
+                        maxlength="16"
+                    >
+
+                    <div class="card-row">
+
+                        <input
+                            type="text"
+                            id="expiry"
+                            placeholder="MM/YY"
+                            maxlength="5"
+                        >
+
+                        <input
+                            type="password"
+                            id="cvv"
+                            placeholder="CVV"
+                            maxlength="3"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- COD Details -->
+                <div
+                    class="cod-details"
+                    id="codDetails"
+                    style="display:none;"
+                >
+
+                    <div class="cod-icon">📦</div>
+
+                    <h3>Cash on Delivery</h3>
+
+                    <p>
+                        You can pay in cash when your
+                        handmade products are delivered.
+                    </p>
+
+                </div>
+
+
+                <!-- Pay Button -->
+                <button
+                    class="pay-btn"
+                    id="payBtn"
+                    onclick="makePayment()"
+                >
+                    Pay Now
+                </button>
+
+            </div>
+
+
+            <!-- Order Summary -->
+            <div class="summary-box">
+
+                <h2>Order Summary</h2>
+
+                <div class="customer-info">
+
+                    <h3>📦 Delivery Address</h3>
+
+                    <p id="customerName">Customer</p>
+
+                    <p id="customerAddress">
+                        Address
+                    </p>
+
+                    <p id="customerPhone">
+                        Phone
+                    </p>
+
+                </div>
+
+
+                <div class="summary-line">
+                    <span>Subtotal</span>
+                    <span id="subtotal">₹0</span>
+                </div>
+
+                <div class="summary-line">
+                    <span>Delivery</span>
+                    <span>₹50</span>
+                </div>
+
+                <div class="summary-line">
+                    <span>Discount</span>
+                    <span id="discount">₹0</span>
+                </div>
+
+                <hr>
+
+                <div class="total-line">
+                    <span>Total</span>
+                    <span id="total">₹0</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Aishu Mart | Handmade with ❤️</p>
+    </footer>
+
+
+    <script src="payment.js"></script>
+
+</body>
+</html>
