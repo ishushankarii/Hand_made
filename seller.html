@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard - Aishu Mart</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fff8f0;
+            color: #333;
+        }
+
+        header {
+            background: #7b3f61;
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
+
+        nav {
+            background: #542842;
+            padding: 14px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px #ddd;
+        }
+
+        h2 {
+            color: #7b3f61;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 14px 0 7px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            background: #7b3f61;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 18px;
+        }
+
+        button:hover {
+            background: #542842;
+        }
+
+        .product {
+            background: #fff8f0;
+            border: 1px solid #ead8e1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .delete-btn {
+            background: #c0392b;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            background: #542842;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Aishu Mart</h1>
+    <p>Seller Dashboard - Smart Handmade Products</p>
+</header>
+
+<nav>
+    <a href="home.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="seller.html">Seller</a>
+    <a href="login.html">Login</a>
+</nav>
+
+<div class="container">
+    <h2>Add New Product</h2>
+
+    <form id="sellerForm">
+        <label for="sellerName">Seller Name</label>
+        <input type="text" id="sellerName"
+               placeholder="Enter seller name" required>
+
+        <label for="productName">Product Name</label>
+        <input type="text" id="productName"
+               placeholder="Enter product name" required>
+
+        <label for="category">Product Category</label>
+        <select id="category" required>
+            <option value="">Select Category</option>
+            <option>Handmade Jewellery</option>
+            <option>Home Decor</option>
+            <option>Handmade Gifts</option>
+            <option>Handmade Bags</option>
+            <option>Paintings</option>
+            <option>Other</option>
+        </select>
+
+        <label for="price">Product Price (₹)</label>
+        <input type="number" id="price"
+               min="1" placeholder="Enter price" required>
+
+        <label for="stock">Available Stock</label>
+        <input type="number" id="stock"
+               min="0" placeholder="Enter stock quantity" required>
+
+        <label for="description">Product Description</label>
+        <textarea id="description" rows="4"
+                  placeholder="Describe your product" required></textarea>
+
+        <label for="image">Product Image</label>
+        <input type="file" id="image" accept="image/*">
+
+        <button type="submit">Add Product</button>
+    </form>
+</div>
+
+<div class="container">
+    <h2>My Products</h2>
+    <div id="productList">
+        <p>No products added yet.</p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Aishu Mart | Smart Handmade Products</p>
+</footer>
+
+<script>
+    const form = document.getElementById("sellerForm");
+    const productList = document.getElementById("productList");
+
+    let products = [];
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const product = {
+            seller: document.getElementById("sellerName").value,
+            name: document.getElementById("productName").value,
+            category: document.getElementById("category").value,
+            price: Number(document.getElementById("price").value),
+            stock: Number(document.getElementById("stock").value),
+            description: document.getElementById("description").value
+        };
+
+        products.push(product);
+        displayProducts();
+        form.reset();
+
+        alert("Product added successfully!");
+    });
+
+    function displayProducts() {
+        productList.innerHTML = "";
+
+        products.forEach(function(product, index) {
+            const card = document.createElement("div");
+            card.className = "product";
+
+            const title = document.createElement("h3");
+            title.textContent = product.name;
+
+            const details = document.createElement("p");
+            details.textContent =
+                "Seller: " + product.seller +
+                " | Category: " + product.category +
+                " | Price: ₹" + product.price +
+                " | Stock: " + product.stock;
+
+            const description = document.createElement("p");
+            description.textContent = product.description;
+
+            const deleteButton = document.createElement("button");
+            deleteButton.className = "delete-btn";
+            deleteButton.textContent = "Delete Product";
+
+            deleteButton.addEventListener("click", function() {
+                products.splice(index, 1);
+                displayProducts();
+            });
+
+            card.append(title, details, description, deleteButton);
+            productList.appendChild(card);
+        });
+    }
+</script>
+
+</body>
+</html>
